@@ -10,6 +10,7 @@ import { Constant } from '../../conststnt';
 import { Actions } from '@ngrx/effects';
 import { loginSuccess } from '../../auth/auth.actions';
 import { Store } from '@ngrx/store';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-user-auth',
@@ -19,7 +20,7 @@ import { Store } from '@ngrx/store';
   styleUrl: './user-auth.component.css'
 })
 export class UserAuthComponent {
-
+  private frontUrl = environment.frontUrl;
   constructor(
         private router: Router,
         private authService: AuthService,

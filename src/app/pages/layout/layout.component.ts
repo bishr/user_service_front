@@ -22,6 +22,7 @@ export class LayoutComponent implements OnInit {
   users: User[] = [];
   
   ngOnInit(): void {
+    this.store.dispatch(checkAuthStatus());
     /*this.authService.getalluser()
       .subscribe(users => {
         this.users = users;
@@ -39,15 +40,18 @@ export class LayoutComponent implements OnInit {
   }*/
 
     async onLogout() {
+      //debugger
       await this.authService.logout().subscribe((res:any)=>
         {if(res.message) {
+          //debugger
           console.log(res.message);
           alert(res.message);
+          
+          this.router.navigate(['/login']);
         } else {
           alert(res);
         }});
-      this.store.dispatch(logout());
-      this.router.navigate(['/login']);
+        this.store.dispatch(logout());
     }
 
 }

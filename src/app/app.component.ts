@@ -4,6 +4,7 @@ import { UserAuthComponent } from './pages/user-auth/user-auth.component';
 import { Actions } from '@ngrx/effects';
 import { checkAuthStatus } from './auth/auth.actions';
 import { Store } from '@ngrx/store';
+import { AuthState } from './auth/auth.model';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent implements OnInit{
   title = 'user_service_front';
-  constructor(private store: Store) {
+  constructor(private store: Store<{ auth: AuthState }>) {
   }
   ngOnInit(): void {
     this.store.dispatch(checkAuthStatus());

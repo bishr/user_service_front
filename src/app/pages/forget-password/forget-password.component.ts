@@ -24,7 +24,12 @@ formObj: string  = "";
     //debugger 
     if(this.formObj !== "" && this.isEmail(this.formObj)){
       await this.authService.sendresetemail(this.formObj).subscribe((res:any)=>
-        {alert("an email sent to your address to reset your password")});
+        {if(res.message) {
+          console.log(res.message);
+          alert(res.message);
+        } else {
+          alert(res);
+        }});
       this.router.navigateByUrl('login');
     }else{ alert("please enter a valid email")}
   }

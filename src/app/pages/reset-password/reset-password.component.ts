@@ -32,8 +32,13 @@ ngOnInit(): void {
     if(this.password.length > 6 
         && this.confirmPassword  == this.password
         && this.token  != ''){
-        await this.authService.resetpassword({token:this.token,password:this.password}).subscribe(()=>
-          {alert("password reset successfully")});
+        await this.authService.resetpassword({token:this.token,password:this.password}).subscribe((res:any)=>
+          {if(res.message) {
+            console.log(res.message);
+            alert(res.message);
+          } else {
+            alert(res);
+          }});
         this.router.navigateByUrl('login');
       
     }else{ alert("please enter a valid password")}

@@ -56,6 +56,7 @@ export class UserAuthComponent {
         
         if(res.message) {
           alert(res.message)
+          console.log(res.message)
           this.router.navigateByUrl('login');
         } else {
           alert(res)
@@ -82,8 +83,9 @@ export class UserAuthComponent {
     if(validinput){
       this.authService.login(this.loginObj).subscribe((res:any)=>{
         
-        console.log(res);
+        
         if(res.message) {
+          console.log(res.message);
           //alert("Login Success");
           //debugger;
           this.store.dispatch(loginSuccess());

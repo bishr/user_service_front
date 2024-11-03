@@ -14,7 +14,10 @@ import { AuthState } from '../../auth/auth.model';
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent implements OnInit {
-  constructor(private store: Store<{ auth: AuthState }>,private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private store: Store<{ auth: AuthState }>,
+    private router: Router) { }
 
   users: User[] = [];
   
@@ -36,7 +39,13 @@ export class LayoutComponent implements OnInit {
   }*/
 
     async onLogout() {
-      //console.log('Dispatching logout action');
+      await this.authService.logout().subscribe((res:any)=>
+        {if(res.message) {
+          console.log(res.message);
+          alert(res.message);
+        } else {
+          alert(res);
+        }});
       this.store.dispatch(logout());
       this.router.navigate(['/login']);
     }

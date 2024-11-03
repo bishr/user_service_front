@@ -18,8 +18,6 @@ export class ResetPasswordComponent {
   ){}
 
   
-
-
 password: string  = "";
 confirmPassword: string  = "";
 token: string | null = null;
@@ -30,7 +28,7 @@ ngOnInit(): void {
 }
 
   async onSubmit() {
-    debugger
+    //debugger 
     if(this.password.length > 6 
         && this.confirmPassword  == this.password
         && this.token  != ''){

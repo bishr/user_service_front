@@ -18,11 +18,10 @@ export class ForgetPasswordComponent {
     private authService: AuthService,
   ){}
 
-
 formObj: string  = "";
 
   async onSubmit() {
-    debugger
+    //debugger 
     if(this.formObj !== "" && this.isEmail(this.formObj)){
       await this.authService.sendresetemail(this.formObj).subscribe((res:any)=>
         {alert("an email sent to your address to reset your password")});

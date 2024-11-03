@@ -36,7 +36,7 @@ export class UserAuthComponent {
   }
 
   onSignup() {
-    debugger;
+    //debugger;
     let validinput: boolean = true;
     let message: string = "";
     if(this.signUpObj.email == "" || !this.isEmail(this.signUpObj.email))
@@ -52,7 +52,7 @@ export class UserAuthComponent {
     }
     if(validinput){
       this.authService.signup(this.signUpObj).subscribe((res:any)=>{
-        debugger;
+        //debugger;
         
         if(res.message) {
           alert(res.message)
@@ -68,7 +68,7 @@ export class UserAuthComponent {
   }
 
   onLogin() {
-    debugger;
+    //debugger;
     let validinput: boolean = true;
     let message: string = "";
     if(this.loginObj.email == "" || !this.isEmail(this.loginObj.email))
@@ -85,7 +85,7 @@ export class UserAuthComponent {
         console.log(res);
         if(res.message) {
           //alert("Login Success");
-          debugger;
+          //debugger;
           this.store.dispatch(loginSuccess());
         } else {
           alert(res)

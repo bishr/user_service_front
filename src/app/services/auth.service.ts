@@ -14,15 +14,15 @@ export class AuthService {
    }
 
   resetpassword(pass: any): Observable<any>{
-    debugger
+    //debugger
     return this.http.post(`${this.apiUrl}/auth/reset-password`
       , pass).pipe(catchError(this.handleError)
       );
-    
+     
   }
 
   sendresetemail(email: string): Observable<any>{
-    debugger
+    //debugger
     return this.http.post(`${this.apiUrl}/auth/forget-password`
       , {email: email}).pipe(catchError(this.handleError));
     
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   logout(): Observable<any>{
-    debugger
+    //debugger
     return this.http.get(`${this.apiUrl}/auth/logout`)
     .pipe(catchError(this.handleError));
     
@@ -58,7 +58,7 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    debugger
+    //debugger
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
